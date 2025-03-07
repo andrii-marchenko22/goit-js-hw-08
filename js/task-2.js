@@ -25,4 +25,36 @@ const images = [
   }
 ];
 
+// варінт 1 ================================>
 
+const collection = document.querySelector('.gallery');
+
+  const element = images.map((image) => {
+  const item = document.createElement("li");
+  item.classList.add("item-elem");
+  
+  const picture = document.createElement("img");
+  picture.classList.add("image-item");
+  picture.src = image.url;
+  picture.alt = image.alt;
+
+  item.appendChild(picture);
+  return item;
+});
+
+collection.append(...element);
+
+
+// варіант 2 =================================>
+
+// const gallery = document.querySelector(".gallery");
+
+// const galleryMarkup = images.map((image) =>
+//     `
+//       <li class="item-elem">
+//         <img class="image-item" src="${image.url}" alt="${image.alt}">
+//       </li>
+//     `
+//   ).join("");
+
+// gallery.insertAdjacentHTML("beforeend", galleryMarkup);
